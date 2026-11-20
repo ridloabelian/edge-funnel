@@ -1,0 +1,29 @@
+{
+  "name": "edge-funnel",
+  "version": "0.1.0",
+  "description": "100% Serverless First-Party Content Attribution & D+1/D+3/D+7 Same-Age Cohort Analytics Engine on Cloudflare Workers + D1",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "wrangler dev --local --ip 127.0.0.1 --port 8792 --inspector-port 9292",
+    "demo": "npm run db:migrate:local && npm run db:seed:local && wrangler dev --local --ip 127.0.0.1 --port 8792 --inspector-port 9292",
+    "db:migrate:local": "wrangler d1 migrations apply edge-funnel-db --local -y",
+    "db:migrate:remote": "wrangler d1 migrations apply edge-funnel-db --remote",
+    "db:seed:local": "wrangler d1 execute edge-funnel-db --local --file=./scripts/seed.sql",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json --noEmit",
+    "test": "NODE_OPTIONS='--no-warnings=ExperimentalWarning' vitest run",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "hono": "^4.13.19"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261120.1",
+    "typescript": "^5.8.3",
+    "vitest": "^5.1.1",
+    "wrangler": "^4.165.0"
+  }
+}

@@ -1,0 +1,9 @@
+# Copy to .dev.vars for local wrangler dev (never commit .dev.vars)
+DEFAULT_WORKSPACE_SLUG=saif-growth
+USD_TO_IDR_RATE=16000
+EF_MASTER_API_KEY=ef_dev_master_key_2026
+WAFLARE_WEBHOOK_SECRET=whsec_waflare_demo
+QRIS_WEBHOOK_SECRET=whsec_qris_demo
+MIDTRANS_SERVER_KEY=midtrans_server_demo
+XENDIT_CALLBACK_TOKEN=xendit_token_demo
+STRIPE_WEBHOOK_SECRET=whsec_stripe_demo
